@@ -1,0 +1,39 @@
+﻿<Controls:MetroWindow x:Class="QLMNTC.View.MainWindow"
+                      Name="MainwindowName"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:QLMNTC.View"
+        xmlns:viewmodel="clr-namespace:QLMNTC.ViewModel"
+        xmlns:userControl="clr-namespace:QLMNTC.UserControl"
+                      Closing="DataWindow_Closing"  
+        mc:Ignorable="d"
+       Title="Quản lý trường mầm non 28/10"
+                     BorderThickness="1" 
+                      GlowBrush="Black"
+                      ResizeMode="NoResize"
+                      WindowTransitionsEnabled="False" Width="1024" Height="388">
+    <!--<Window.DataContext>
+        <viewmodel:HocSinhViewModel></viewmodel:HocSinhViewModel>
+    </Window.DataContext>-->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid  Grid.Row="0">
+            <Image Source="..//images/f31b0791c72bacbb512b5e369a13a46c42b173b9fd4e8.jpg" Margin="0"/>
+            <TextBlock Text="QUẢN LÝ MẦM NON" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Opacity="0.6" FontFamily="Segoe UI Black" Background="#7FFFFFFF" />
+            <userControl:MenuUserControl></userControl:MenuUserControl>
+            
+        </Grid>
+        <Border VerticalAlignment="Bottom" Margin="0" BorderBrush="#FF8F7C7C" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Height="35" Grid.RowSpan="2">
+            <TextBlock Text="--Design by hungnv-Ruby@--" Foreground="#FF4F4F4F" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        </Border>
+    </Grid>
+
+</Controls:MetroWindow>

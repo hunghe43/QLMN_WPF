@@ -1,0 +1,79 @@
+﻿<Controls:MetroWindow x:Class="QLMNTC.View.DiemDanhWindow"
+                      Name="windowdiemdanh"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:QLMNTC.View"
+                      xmlns:viewmodel="clr-namespace:QLMNTC.ViewModel"
+                      xmlns:mutilbinding="clr-namespace:QLMNTC.Common"
+                       Closing="DataWindow_Closing"  
+        mc:Ignorable="d"
+        Title="Quản lý trường mầm non 28/10"
+                      BorderThickness="1"
+                      GlowBrush="Black"
+                      ResizeMode="NoResize"
+                      WindowTransitionsEnabled="False" Height="577.833" Width="450">
+    <Window.Resources>
+        <mutilbinding:PassThroughConverter x:Key="PassThroughConverter"></mutilbinding:PassThroughConverter>
+    </Window.Resources>
+    <Grid>
+        <Grid>
+            <TextBlock Text="Điểm danh" HorizontalAlignment="Center" Opacity="0.6" FontFamily="Segoe UI Black" FontSize="20" VerticalAlignment="Top" />
+        </Grid>
+        <WrapPanel HorizontalAlignment="Center" Margin="0,38,0,0">
+            <DatePicker Name="datepicker" Margin="72,10,0,0" Text="{Binding Date}" HorizontalAlignment="Center" VerticalAlignment="Top">
+            </DatePicker>
+            <Button Content="Hiển thị" Margin="21,10,135,0" Padding="0" Width="69" 
+                    Command="{Binding GetDiemDanh}" VerticalAlignment="Top">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource PassThroughConverter}">
+                        <Binding ElementName="datepicker"></Binding>
+                        <Binding ElementName="windowdiemdanh"></Binding>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+                   
+            <DataGrid Name="dtg_tenhs" ItemsSource="{Binding ListHocSinh,Mode=TwoWay}" BorderThickness="0,1,2,0"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                      CanUserAddRows="false"
+                      Grid.Row="1" Margin="54,10,0,0" AutoGenerateColumns="False" Height="355" Width="105" Panel.ZIndex="1" HorizontalContentAlignment="Right" BorderBrush="#00119EDA" IsSynchronizedWithCurrentItem="True" IsEnabled="False" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Ten}" Header="Tên Học Sinh" IsReadOnly="True"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid Name="dtg_diemdanh" ItemsSource="{Binding ListTheoDoi,Mode=TwoWay}" BorderThickness="0,1,2,0"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                      CanUserAddRows="false"
+                      Grid.Row="1" Margin="0,10,0,0" AutoGenerateColumns="False" Height="355" Width="239" Panel.ZIndex="1" HorizontalContentAlignment="Right" BorderBrush="#00119EDA" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding MaHocSinh}" Header="ID" IsReadOnly="True"/>
+                    <!--<DataGridTextColumn Binding="{Binding Ten}" Header="Tên học sinh" IsReadOnly="True"/>-->
+                    <DataGridCheckBoxColumn Header="Vắng" Binding="{Binding DDVang,UpdateSourceTrigger=PropertyChanged}"></DataGridCheckBoxColumn>
+                    <DataGridCheckBoxColumn Header="Ăn sáng" Binding="{Binding DDAnSang,UpdateSourceTrigger=PropertyChanged}"></DataGridCheckBoxColumn>
+                    <DataGridCheckBoxColumn Header="Ăn trưa" Binding="{Binding DDAnTrua,UpdateSourceTrigger=PropertyChanged}"></DataGridCheckBoxColumn>
+                   
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="Điểm Danh" Margin="167,10,0,0" Padding="0" Width="88"
+                    Command="{Binding DiemDanh}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource PassThroughConverter}">
+                        <Binding ElementName="dtg_diemdanh"></Binding>
+                        <Binding ElementName="datepicker"></Binding>
+                    </MultiBinding>
+                </Button.CommandParameter>
+                </Button>
+            <!--CommandParameter="{Binding ElementName=dtg_diemdanh}">-->
+            <Border VerticalAlignment="Bottom" Margin="0,34,0,0" BorderBrush="#FF8F7C7C" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Height="39" Width="442" HorizontalAlignment="Center">
+                <TextBlock Text="--Design by hungnv-Ruby@--" Foreground="#FF4F4F4F" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            </Border>
+        </WrapPanel>
+
+
+    </Grid>
+</Controls:MetroWindow>

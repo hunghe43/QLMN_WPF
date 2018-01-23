@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F32D15E4-8DE3-424A-B8AF-FFC30048F651}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QLMN_Librany</RootNamespace>
+    <AssemblyName>QLMN_Librany</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLO\impl\DichVuBloImpl.cs" />
+    <Compile Include="BLO\impl\PhieuTheoDoiBloImpl.cs" />
+    <Compile Include="DAO\impl\CT_DichVu_HocSinhDaoImpl.cs" />
+    <Compile Include="DAO\impl\CT_NgayTheoDoiDaoImpl.cs" />
+    <Compile Include="DAO\impl\CT_PhieuThu_HocSinhDaoImpl.cs" />
+    <Compile Include="DAO\impl\DichVuNgoaiDaoImpl.cs" />
+    <Compile Include="DAO\impl\HocPhiDaoImpl.cs" />
+    <Compile Include="DAO\impl\HocSinhDaoImpl.cs" />
+    <Compile Include="DAO\impl\LoaiHocPhiDaoImpl.cs" />
+    <Compile Include="DAO\impl\LopDaoImpl.cs" />
+    <Compile Include="DAO\impl\NhanVienDaoImpl.cs" />
+    <Compile Include="DAO\impl\PhieuChiTieuDaoImpl.cs" />
+    <Compile Include="DAO\impl\PhieuTheoDoiDaoImpl.cs" />
+    <Compile Include="DAO\impl\PhieuThuDaoImpl.cs" />
+    <Compile Include="DAO\impl\QuyenDaoImpl.cs" />
+    <Compile Include="DAO\impl\Quyen_ChucVuDaoImpl.cs" />
+    <Compile Include="DAO\IChucVuDao.cs" />
+    <Compile Include="DAO\ICT_DichVu_HocSinhDao.cs" />
+    <Compile Include="DAO\ICT_NgayTheoDoiDao.cs" />
+    <Compile Include="DAO\ICT_PhieuThu_HocSinhDao.cs" />
+    <Compile Include="DAO\impl\ChucVuDaoImpl.cs" />
+    <Compile Include="DAO\IDichVuNgoaiDao.cs" />
+    <Compile Include="DAO\IHocPhiDAO.cs" />
+    <Compile Include="DAO\IHocSinhDao.cs" />
+    <Compile Include="DAO\ILoaiHocPhiDao.cs" />
+    <Compile Include="DAO\ILopDao.cs" />
+    <Compile Include="DAO\INhanVienDao.cs" />
+    <Compile Include="DAO\IPhieuChiTieuDao.cs" />
+    <Compile Include="DAO\IPhieuTheoDoiDao.cs" />
+    <Compile Include="DAO\IPhieuThuDao.cs" />
+    <Compile Include="DAO\IQuyenDao.cs" />
+    <Compile Include="DAO\IQuyen_ChucVuDao.cs" />
+    <Compile Include="Objects\ChucVu.cs" />
+    <Compile Include="Objects\CT_DichVu_HocSinh.cs" />
+    <Compile Include="Objects\CT_NgayTheoDoi.cs" />
+    <Compile Include="Objects\CT_PhieuThu_HocSinh.cs" />
+    <Compile Include="Objects\DichVuNgoai.cs" />
+    <Compile Include="Objects\HocSinh.cs" />
+    <Compile Include="Objects\HocSinh_TheoDoi.cs" />
+    <Compile Include="Objects\LoaiHocPhi.cs" />
+    <Compile Include="Objects\HocPhi.cs" />
+    <Compile Include="Objects\Lop.cs" />
+    <Compile Include="Objects\NhanVien.cs" />
+    <Compile Include="Objects\PhieuChiTieu.cs" />
+    <Compile Include="Objects\PhieuTheoDoi.cs" />
+    <Compile Include="Objects\PhieuThu.cs" />
+    <Compile Include="Objects\Quyen.cs" />
+    <Compile Include="Objects\Quyen_ChucVu.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

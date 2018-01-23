@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="QLMNTC.UserControl.MenuUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QLMNTC.UserControl"
+             xmlns:viewmodel="clr-namespace:QLMNTC.ViewModel"             
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary Source="..//Dictionaries/MenuDictionaries.xaml"></ResourceDictionary>
+    </UserControl.Resources>
+
+    <Canvas>
+        <StackPanel Panel.ZIndex="2" Style="{StaticResource spSlideLeft}" x:Name="spLeft" Background="#2D3446" Margin="-150,0,0,0">
+
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="210" Height="50">
+                <TextBlock Style="{DynamicResource MenuBlock}" Width="150" Text="QUẢN LÝ HỌC SINH" VerticalAlignment="Center" FontFamily="Segoe UI Semibold">
+                    <TextBlock.InputBindings>
+                        <MouseBinding Command="{Binding ViewQuanLyHocSinh}" MouseAction="LeftClick"></MouseBinding>
+                    </TextBlock.InputBindings>
+                </TextBlock>
+                <Image Source="..//images/home.png" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="14,10,10,10" />
+
+            </DockPanel>
+
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="210" >
+                <TextBlock Style="{DynamicResource MenuBlock}" Text="QUẢN LÝ NHÂN VIÊN" Width="150" VerticalAlignment="Center" FontFamily="Source Sans Pro">
+                    <TextBlock.InputBindings>
+                        <MouseBinding Command="{Binding ViewQuanLyNhanVien}" MouseAction="LeftClick"></MouseBinding>
+                    </TextBlock.InputBindings>
+                </TextBlock>
+                <Image Source="..//images/document.png" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="14,10,10,10" />
+
+            </DockPanel>
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="210" >
+                <TextBlock Style="{DynamicResource MenuBlock}" Text="QUẢN LÝ HỌC PHÍ" Width="150" VerticalAlignment="Center" FontFamily="Source Sans Pro">
+                    <TextBlock.InputBindings>
+                        <MouseBinding Command="{Binding ViewQuanLyHocPhi}" MouseAction="LeftClick"></MouseBinding>
+                    </TextBlock.InputBindings>
+                </TextBlock>
+                <Image Source="..//images/progress.png" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="14,10,10,10" />
+
+            </DockPanel>
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="210" >
+                <TextBlock Style="{DynamicResource MenuBlock}" Text="ĐIỂM DANH" Width="150" VerticalAlignment="Center" FontFamily="Source Sans Pro">
+                    <TextBlock.InputBindings>
+                        <MouseBinding Command="{Binding ViewDiemDanh}" MouseAction="LeftClick"></MouseBinding>
+                    </TextBlock.InputBindings>
+                </TextBlock>
+                <Image Source="..//images/file.png" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="14,10,10,10" />
+            </DockPanel>
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="210" >
+                <TextBlock Style="{DynamicResource MenuBlock}" Text="PHIẾU CHI TIÊU" Width="150" VerticalAlignment="Center" FontFamily="Source Sans Pro">
+                    <TextBlock.InputBindings>
+                        <MouseBinding Command="{Binding ViewPhieuChiTieu}" MouseAction="LeftClick"></MouseBinding>
+                    </TextBlock.InputBindings>
+                </TextBlock>
+                <Image Source="..//images/analysis.png" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="14,10,10,10" />
+            </DockPanel>
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="210" >
+                <TextBlock Style="{DynamicResource MenuBlock}" Text="Đăng xuất" Width="150" VerticalAlignment="Center" FontFamily="Source Sans Pro">
+                    <TextBlock.InputBindings>
+                        <MouseBinding Command="{Binding Logout}" MouseAction="LeftClick"></MouseBinding>
+                    </TextBlock.InputBindings>
+                </TextBlock>
+                <Image Source="..//images/settings.png" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="14,10,10,10" />
+            </DockPanel>
+        </StackPanel>
+    </Canvas>
+</UserControl>

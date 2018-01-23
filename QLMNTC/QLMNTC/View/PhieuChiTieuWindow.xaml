@@ -1,0 +1,78 @@
+﻿<Controls:MetroWindow x:Class="QLMNTC.View.PhieuChiTieuWindow"
+                      Name="Ptc_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:multibinding="clr-namespace:QLMNTC.Common"
+        xmlns:local="clr-namespace:QLMNTC.View"
+        xmlns:viewmodel="clr-namespace:QLMNTC.ViewModel"
+        Closing="DataWindow_Closing" 
+        mc:Ignorable="d"
+                      Title="Quản lý trường mầm non 28/10"
+                               
+                     BorderThickness="1" 
+                      GlowBrush="Black"
+                      ResizeMode="NoResize"
+                      WindowTransitionsEnabled="False" Height="588" Width="603">
+    <Window.DataContext>
+        <viewmodel:PhieuChiTieuViewModel></viewmodel:PhieuChiTieuViewModel>
+    </Window.DataContext>
+    <Window.Resources>
+        <multibinding:PassThroughConverter x:Key="passThoughtConverter"></multibinding:PassThroughConverter>
+    </Window.Resources>
+    <StackPanel>
+
+        <TextBlock Text="Phiếu Chi Tiêu" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Opacity="0.6" FontFamily="Segoe UI Black" Background="#7FFFFFFF" />
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding ListPhieuChiTieu}" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" AutoGenerateColumns="False" Height="300"
+                  CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã phiếu" Binding="{Binding MaPhieuChiTieu}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ngày nhập" Binding="{Binding NgayTaoPhieu}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Người nhập" Binding="{Binding MaNhanVien}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Lý do" Binding="{Binding LyDo}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Chi phí" Binding="{Binding ChiPhi}"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="X" Command="{Binding DataContext.DeletePhieuChiTieu,ElementName=dataGrid}">
+                                <Button.CommandParameter>
+                                    <MultiBinding Converter="{StaticResource passThoughtConverter}">
+                                        <Binding ElementName="Ptc_Window"></Binding>
+                                        <Binding ElementName="dataGrid"></Binding>
+                                    </MultiBinding>
+                                </Button.CommandParameter>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel Name="wrap_ptc" Margin="20,10,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Width="473">
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Chọn ngày" VerticalAlignment="Center"/>
+            <TextBlock x:Name="txbMaPhieu" Text="{Binding SelectedItem.MaPhieuChiTieu,ElementName=dataGrid}" Width="0" Height="0"></TextBlock>
+            <DatePicker Name="dtNgay" HorizontalAlignment="Left" Text="{Binding SelectedItem.NgayTaoPhieu,ElementName=dataGrid}" VerticalAlignment="Top" Margin="10,0,0,0" Width="130"/>
+            <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Người nhập" VerticalAlignment="Center" Margin="48,0,0,0"/>
+            <TextBox x:Name="txtMaNV" Text="{Binding SelectedItem.MaNhanVien,ElementName=dataGrid}" Controls:TextBoxHelper.Watermark="Ghi chú..." HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="140" Margin="10,0,0,0"/>
+            <TextBlock x:Name="textBlock1_Copy"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="Chi phí" VerticalAlignment="Center" Margin="0,10,0,0"/>
+            <Controls:NumericUpDown Name="nbChiPhi" Value="{Binding SelectedItem.ChiPhi,ElementName=dataGrid}" Controls:TextBoxHelper.Watermark="Ghi chú..." HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="129" Margin="31,10,0,0"></Controls:NumericUpDown>
+            
+            <TextBlock x:Name="textBlock1_Copy1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Lý do" VerticalAlignment="Center" Margin="50,10,0,0"/>
+            <TextBox x:Name="txtLyDo" Text="{Binding SelectedItem.LyDo, ElementName=dataGrid}" Controls:TextBoxHelper.Watermark="Ghi chú..." HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="140" Margin="44,10,0,0"/>
+        </WrapPanel>
+        <Button x:Name="button" Content="Excute" HorizontalAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" Width="75"
+                Command="{Binding ExcutePhieuChiTieu}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource passThoughtConverter}">
+                    <Binding ElementName="Ptc_Window"></Binding>
+                    <Binding ElementName="wrap_ptc"></Binding>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+
+        <Border VerticalAlignment="Bottom" Margin="0,33,0,0" BorderBrush="#FF8F7C7C" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Height="35">
+            <TextBlock Text="--Design by hungnv-Ruby@--" Foreground="#FF4F4F4F" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+    </StackPanel>
+</Controls:MetroWindow>

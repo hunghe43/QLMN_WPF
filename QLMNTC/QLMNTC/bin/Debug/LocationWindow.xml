@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<Windows>
+  <Window name="loginwindowName">
+    <Top>321</Top>
+    <Left>893</Left>
+  </Window>
+  <Window name="ThuPhiWindow">
+    <Top>386</Top>
+    <Left>842</Left>
+  </Window>
+  <Window name="WindowHocSinh">
+    <Top>260</Top>
+    <Left>495</Left>
+  </Window>
+  <Window name="DialogNhanVien">
+    <Top>232</Top>
+    <Left>535</Left>
+  </Window>
+  <Window name="NhanVienWindowName">
+    <Top>221</Top>
+    <Left>414</Left>
+  </Window>
+  <Window name="Ptc_Window">
+    <Top>273</Top>
+    <Left>702</Left>
+  </Window>
+  <Window name="windowdiemdanh">
+    <Top>249</Top>
+    <Left>467</Left>
+  </Window>
+  <Window name="windowhocphi">
+    <Top>215</Top>
+    <Left>565</Left>
+  </Window>
+  <Window name="MainwindowName">
+    <Top>205</Top>
+    <Left>465</Left>
+  </Window>
+  <Window name="ChildWindow">
+    <Top>200</Top>
+    <Left>770</Left>
+  </Window>
+</Windows>

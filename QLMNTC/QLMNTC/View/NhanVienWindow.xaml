@@ -1,0 +1,90 @@
+﻿<Controls:MetroWindow x:Class="QLMNTC.View.NhanVienWindow"
+                      Name="NhanVienWindowName"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"                      
+            xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLMNTC.View"
+        Closing="DataWindow_Closing" 
+        xmlns:viewmodel="clr-namespace:QLMNTC.ViewModel"
+        mc:Ignorable="d"
+                      Title="Quản lý trường mầm non 28/10"
+                      BorderThickness="1" 
+                      GlowBrush="Black"
+                      ResizeMode="NoResize"
+                      WindowTransitionsEnabled="False" Width="1024" Height="498.583">
+    <Window.DataContext>
+        <viewmodel:NhanVienViewModel></viewmodel:NhanVienViewModel>
+    </Window.DataContext>
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid  Grid.Row="0">
+                <TextBlock Text="QUẢN LÝ NHÂN VIÊN" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Opacity="0.6" FontFamily="Segoe UI Black" Background="#7FFFFFFF" />
+            </Grid>
+            <DataGrid x:Name="dtg_listNhanVien" ItemsSource="{Binding ListNhanVien, Mode=TwoWay}" BorderThickness="1"
+                       CanUserAddRows="false"
+                          HorizontalScrollBarVisibility="Auto" 
+                          VerticalScrollBarVisibility="Auto" 
+                          HorizontalAlignment="Center"
+                          Grid.Row="2" Margin="0" AutoGenerateColumns="False" >
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        Header="Chọn"
+                                        Binding="{Binding IsSelected, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}"
+                                        />
+                    <DataGridTextColumn Binding="{Binding TenNhanVien}" Header="Tên nhân viên" IsReadOnly="True"/>
+                    <DataGridTextColumn  Binding="{Binding Email}" Header="Email" IsReadOnly="True"/>
+                    <DataGridTextColumn  Binding="{Binding DiaChi}" Header="Địa chỉ" IsReadOnly="True"/>
+                    <DataGridTextColumn  Binding="{Binding Sdt}" Header="Số điện thoại" IsReadOnly="True"/>
+                    <DataGridTextColumn  Binding="{Binding MaChucVu}" Header="Chức vụ" IsReadOnly="True"/>
+                    <DataGridTemplateColumn Header="Chi tiết">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Button Content="Chi tiết" Margin="10,0,0,0"
+                                            Command="{Binding DataContext.ShowDialog, ElementName=dtg_listNhanVien, Mode=TwoWay}" 
+                                            CommandParameter="{Binding}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center"  Grid.Row="3" Margin="0,10,0,0">
+                <!--<ToggleButton  Width="50"
+                                  Height="50"
+                                  Style="{DynamicResource MetroCircleToggleButtonStyle}">
+                        <Rectangle Width="20"
+                                   Height="20"
+                                   Fill="{DynamicResource BlackBrush}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                                             Visual="{DynamicResource appbar_city}"/>
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                    </ToggleButton>-->
+                <Button Content="Thêm mới" Width="100" Command="{Binding ShowDialog, Mode=TwoWay}"/>
+                <Button Content="Sửa" Width="100" Margin="10,0,0,0" 
+                        Command="{Binding ShowDialog, Mode=TwoWay}"
+                        CommandParameter="{Binding SelectedItem, ElementName=dtg_listNhanVien}"/>
+                <Button Content="Xóa" Width="100" Margin="10,0,0,0"   
+                        Command="{Binding DeleteNhanVien, Mode=TwoWay}"
+                        CommandParameter="{Binding SelectedItem, ElementName=dtg_listNhanVien}"/>
+            </StackPanel>
+
+        </Grid>
+        <Border VerticalAlignment="Bottom" Margin="0,32,0,0" BorderBrush="#FF8F7C7C" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Height="35">
+            <TextBlock Text="--Design by hungnv-Ruby@--" Foreground="#FF4F4F4F" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+    </StackPanel>
+</Controls:MetroWindow>
+

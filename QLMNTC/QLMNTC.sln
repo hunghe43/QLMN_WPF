@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLMNTC", "QLMNTC\QLMNTC.csproj", "{CB840836-437E-42BC-8D50-DB5C99B0A5B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLMN_Librany", "QLMN_Librany\QLMN_Librany.csproj", "{F32D15E4-8DE3-424A-B8AF-FFC30048F651}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB840836-437E-42BC-8D50-DB5C99B0A5B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB840836-437E-42BC-8D50-DB5C99B0A5B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB840836-437E-42BC-8D50-DB5C99B0A5B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB840836-437E-42BC-8D50-DB5C99B0A5B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F32D15E4-8DE3-424A-B8AF-FFC30048F651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F32D15E4-8DE3-424A-B8AF-FFC30048F651}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F32D15E4-8DE3-424A-B8AF-FFC30048F651}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F32D15E4-8DE3-424A-B8AF-FFC30048F651}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

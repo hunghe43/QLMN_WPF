@@ -1,0 +1,39 @@
+﻿<Controls:MetroWindow x:Class="QLMNTC.View.LoginWindow"
+                      Name="loginwindowName"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:multilParameter="clr-namespace:QLMNTC.Common"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"  
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:QLMNTC.ViewModel"
+        xmlns:local="clr-namespace:QLMNTC.View"
+        mc:Ignorable="d"
+        Title="Quản lý trường mầm non 28/10" Height="300" Width="300"
+                      BorderThickness="1" 
+                      GlowBrush="Black"
+                      ResizeMode="NoResize"
+                      WindowTransitionsEnabled="False"
+                      Closing="DataWindow_Closing">
+    <Window.DataContext>
+        <viewmodel:LoginViewModel></viewmodel:LoginViewModel>
+    </Window.DataContext>
+    <Window.Resources>
+        <multilParameter:PassThroughConverter x:Key="PassthroughConverter"></multilParameter:PassThroughConverter>
+    </Window.Resources>
+    <WrapPanel Name="wrap_login" HorizontalAlignment="Center" Margin="40,40,40,0" Width="214">
+        <TextBlock Text="Đăng nhập" Opacity="0.6" FontFamily="Segoe UI Black" FontSize="14" Width="186" VerticalAlignment="Center" Margin="15,10,0,0" Padding="51,0,0,0" />
+        <TextBox Name="txtEmail"  Controls:TextBoxHelper.Watermark="Email..." Margin="15,10,0,0" Width="186"/>
+        <PasswordBox Name="txtPassword"  Controls:TextBoxHelper.Watermark="Password..." Margin="15,10,0,0" Width="186"/>
+        <Button Content="Login" Width="81" Margin="15,10,0,0" Command="{Binding Login}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource PassthroughConverter}">
+                    <Binding ElementName="loginwindowName"></Binding>
+                    <Binding ElementName="wrap_login"></Binding>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+        <Button Content="Cancel" Width="81" Margin="24,10,0,0"/>
+        
+    </WrapPanel>
+</Controls:MetroWindow>
